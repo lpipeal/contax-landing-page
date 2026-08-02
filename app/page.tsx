@@ -1,65 +1,50 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useState } from "react";
+
+type Language = "en" | "es";
+type Translation = {
+  nav: [string, string, string]; schedule: string; eyebrow: string; hero: [string, string]; description: string; explore: string;
+  next: string; clarity: string; caption: [string, string]; trust: string[]; aboutLabel: string; about: [string, string]; lead: string; aboutText: string; meet: string;
+  servicesLabel: string; servicesTitle: [string, string]; servicesText: string; services: [string, string, string[]][]; standardLabel: string; quote: string; standards: string[];
+  whyLabel: string; why: [string, string]; visual: [string, string]; reasons: [string, string][]; processLabel: string; process: [string, string]; steps: [string, string][];
+  serveLabel: string; serve: [string, string]; industries: string[]; ctaLabel: string; cta: [string, string]; ctaText: string; exploreLabel: string; contactLabel: string; footerLinks: [string, string, string]; footerNote: string; footerSlogan: string;
+};
+
+const content: Record<Language, Translation> = {
+  en: {
+    nav:["About us","Services","Our process"], schedule:"Schedule a consultation", eyebrow:"Strategic accounting for ambitious businesses", hero:["We build stronger businesses.","We protect your growth."], description:"Accounting, tax and business advisory for entrepreneurs, growing companies and international investors doing business in the United States.", explore:"Explore our services", next:"Your next move", clarity:"Clarity creates confidence.", caption:["Business & financial","solutions, made clear."], trust:["Bookkeeping","Individual taxes","Business taxes","ITIN services","Company formation","Foreign entrepreneurs"],
+    aboutLabel:"The Contax difference", about:["More than compliance.","A clear path forward."], lead:"At Contax, we believe accounting should empower better business decisions—not simply meet tax obligations.", aboutText:"We are a boutique advisory firm for entrepreneurs, small businesses and international investors who expect rigor, clarity and a partner invested in their long-term success.", meet:"Meet with our team",
+    servicesLabel:"Our expertise", servicesTitle:["Built for every stage","of your business."], servicesText:"Focused solutions for the financial, tax and structural decisions that matter most.", services:[["Bookkeeping","Clear monthly records and reporting that turn your numbers into decisions.",["Monthly accounting","Financial reporting","QuickBooks support"]],["Business taxes","Strategic tax support for LLCs, corporations and partnerships.",["Tax planning","Federal & state returns","IRS correspondence"]],["Individual taxes","Thoughtful, accurate preparation for residents, nonresidents and families.",["1040 & 1040NR","Amendments","Tax credits"]],["Company formation","The right foundation for the business you are ready to build.",["LLC & corporation","EIN & agreements","Annual compliance"]],["International clients","Specialized guidance for foreign entrepreneurs operating in the U.S.",["Foreign-owned LLCs","Form 5472","ITIN support"]],["Business advisory","A practical financial perspective to support the next phase of growth.",["Cash-flow planning","Business structure","Growth strategy"]]],
+    standardLabel:"The Contax standard", quote:"“Your numbers should tell you where to go next—not hold you back.”", standards:["Integrity","Precision","Partnership","Growth"], whyLabel:"Why Contax", why:["A trusted partner","for what’s next."], visual:["Expertise","with intention."], reasons:[["Specialized perspective","We understand complex business structures, international ownership and the decisions behind the filings."],["Personalized support","Your strategy is shaped around your business, your goals and the way you work."],["Clear communication","We translate financial complexity into practical insight you can act on with confidence."]],
+    processLabel:"How we work", process:["Built around your","next chapter."], steps:[["Listen","We start with your goals and the full picture."],["Analyze","We identify risks, opportunities and priorities."],["Strategize","We design the right financial and tax path."],["Implement","We execute with care, accuracy and transparency."],["Grow","We stay close as your business moves forward."]], serveLabel:"Who we serve", serve:["Business is personal.","So is our advice."], industries:["Technology & SaaS","Real estate","Construction","E-commerce","Restaurants","Professional services","Startups","Global investors"], ctaLabel:"Start with a conversation", cta:["Ready for a clearer","financial future?"], ctaText:"Tell us where you are today and where you want your business to go. We’ll help you chart the right next step.", exploreLabel:"Explore", contactLabel:"Contact", footerLinks:["About Contax","Our services","Our process"], footerNote:"Accounting, tax and business advisory with a long-term view.", footerSlogan:"We build businesses. We protect your growth."
+  },
+  es: {
+    nav:["Nosotros","Servicios","Nuestro proceso"], schedule:"Agenda una consulta", eyebrow:"Asesoría estratégica para empresas ambiciosas", hero:["Construimos empresas más sólidas.","Protegemos tu crecimiento."], description:"Asesoría contable, tributaria y empresarial para emprendedores, empresas en crecimiento e inversionistas internacionales que hacen negocios en Estados Unidos.", explore:"Explora nuestros servicios", next:"Tu próximo paso", clarity:"La claridad crea confianza.", caption:["Soluciones financieras","y empresariales claras."], trust:["Contabilidad","Impuestos personales","Impuestos empresariales","Servicios ITIN","Creación de empresas","Emprendedores extranjeros"],
+    aboutLabel:"La diferencia Contax", about:["Más que cumplimiento.","Un camino claro hacia adelante."], lead:"En Contax creemos que la contabilidad debe impulsar mejores decisiones empresariales, no solo cumplir obligaciones tributarias.", aboutText:"Somos una firma boutique de asesoría para emprendedores, pequeñas empresas e inversionistas internacionales que esperan rigor, claridad y un aliado comprometido con su éxito a largo plazo.", meet:"Conoce a nuestro equipo",
+    servicesLabel:"Nuestra experiencia", servicesTitle:["Soluciones para cada etapa","de tu empresa."], servicesText:"Soluciones enfocadas para las decisiones financieras, tributarias y estructurales que más importan.", services:[["Contabilidad","Registros mensuales y reportes claros que transforman tus números en decisiones.",["Contabilidad mensual","Reportes financieros","Soporte QuickBooks"]],["Impuestos empresariales","Asesoría tributaria estratégica para LLC, corporaciones y partnerships.",["Planeación fiscal","Declaraciones federales y estatales","Cartas del IRS"]],["Impuestos personales","Preparación precisa y cuidadosa para residentes, no residentes y familias.",["1040 y 1040NR","Enmiendas","Créditos tributarios"]],["Creación de empresas","La estructura correcta para el negocio que estás listo para construir.",["LLC y corporación","EIN y acuerdos","Cumplimiento anual"]],["Clientes internacionales","Guía especializada para empresarios extranjeros que operan en EE. UU.",["LLC de propiedad extranjera","Formulario 5472","Soporte ITIN"]],["Asesoría empresarial","Una perspectiva financiera práctica para impulsar la siguiente etapa de crecimiento.",["Planeación de flujo de caja","Estructura empresarial","Estrategia de crecimiento"]]],
+    standardLabel:"El estándar Contax", quote:"“Tus números deben decirte hacia dónde ir, no detenerte.”", standards:["Integridad","Precisión","Alianza","Crecimiento"], whyLabel:"Por qué Contax", why:["Un aliado de confianza","para lo que sigue."], visual:["Experiencia","con intención."], reasons:[["Perspectiva especializada","Entendemos estructuras empresariales complejas, propiedad internacional y las decisiones que hay detrás de cada declaración."],["Acompañamiento personalizado","Tu estrategia se construye alrededor de tu empresa, tus metas y tu forma de trabajar."],["Comunicación clara","Traducimos la complejidad financiera en información práctica para que actúes con confianza."]],
+    processLabel:"Cómo trabajamos", process:["Pensado para tu","próximo capítulo."], steps:[["Escuchamos","Empezamos por tus metas y la visión completa."],["Analizamos","Identificamos riesgos, oportunidades y prioridades."],["Diseñamos la estrategia","Definimos el camino financiero y tributario adecuado."],["Implementamos","Ejecutamos con cuidado, precisión y transparencia."],["Crecemos","Seguimos cerca mientras tu empresa avanza."]], serveLabel:"A quién servimos", serve:["Los negocios son personales.","Nuestra asesoría también."], industries:["Tecnología y SaaS","Bienes raíces","Construcción","Comercio electrónico","Restaurantes","Servicios profesionales","Startups","Inversionistas globales"], ctaLabel:"Empecemos conversando", cta:["¿Listo para un futuro financiero","más claro?"], ctaText:"Cuéntanos dónde estás hoy y a dónde quieres llevar tu empresa. Te ayudaremos a trazar el siguiente paso correcto.", exploreLabel:"Explora", contactLabel:"Contacto", footerLinks:["Sobre Contax","Nuestros servicios","Nuestro proceso"], footerNote:"Asesoría contable, tributaria y empresarial con visión de largo plazo.", footerSlogan:"Construimos empresas. Protegemos tu crecimiento."
+  }
+};
+
+function Arrow() { return <span aria-hidden="true">↗</span>; }
+function Logo({ compact = false }: { compact?: boolean }) { return <Image className={compact ? "isotype" : "brand-logo"} src={compact ? "/contax-isotype.png" : "/contax-logo.png"} alt="Contax Business Solutions" width={compact ? 130 : 500} height={compact ? 130 : 120} priority />; }
 
 export default function Home() {
-  return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+  const [language, setLanguage] = useState<Language>("en"); const t = content[language];
+  useEffect(() => { const saved = window.localStorage.getItem("contax-language"); const detected: Language = navigator.language.toLowerCase().startsWith("es") ? "es" : "en"; setLanguage(saved === "es" || saved === "en" ? saved : detected); }, []);
+  useEffect(() => { document.documentElement.lang = language; }, [language]);
+  const changeLanguage = (next: Language) => { window.localStorage.setItem("contax-language", next); setLanguage(next); };
+  return <main><section className="hero" id="top"><nav className="nav container" aria-label="Main navigation"><a className="brand" href="#top" aria-label="Contax home"><Logo /></a><div className="nav-links"><a href="#about">{t.nav[0]}</a><a href="#services">{t.nav[1]}</a><a href="#process">{t.nav[2]}</a></div><div className="nav-actions"><div className="language-switcher" aria-label="Language selector"><button className={language === "en" ? "active" : ""} onClick={() => changeLanguage("en")} aria-pressed={language === "en"}>EN</button><span>/</span><button className={language === "es" ? "active" : ""} onClick={() => changeLanguage("es")} aria-pressed={language === "es"}>ES</button></div><a className="nav-cta" href="#contact">{t.schedule} <Arrow /></a></div></nav><div className="hero-content container"><div className="hero-copy"><p className="eyebrow light">{t.eyebrow}</p><h1>{t.hero[0]} <i>{t.hero[1]}</i></h1><p className="hero-description">{t.description}</p><div className="hero-actions"><a className="button button-gold" href="#contact">{t.schedule} <Arrow /></a><a className="text-link" href="#services">{t.explore} <Arrow /></a></div></div><div className="hero-art" aria-hidden="true"><div className="orbit orbit-one" /><div className="orbit orbit-two" /><div className="line line-one" /><div className="line line-two" /><div className="growth-card"><span>{t.next}</span><strong>{t.clarity}</strong><div className="chart"><i /><i /><i /><i /><i /><b /></div></div><p className="art-caption">{t.caption[0]}<br />{t.caption[1]}</p></div></div><div className="trust-bar"><div className="container trust-items">{t.trust.map((item) => <span key={item}>{item}</span>)}</div></div></section>
+    <section className="intro section container" id="about"><div className="section-label"><span>01</span>{t.aboutLabel}</div><div className="intro-grid"><h2>{t.about[0]} <i>{t.about[1]}</i></h2><div><p className="lead">{t.lead}</p><p>{t.aboutText}</p><a className="text-link dark-link" href="#contact">{t.meet} <Arrow /></a></div></div></section>
+    <section className="services section" id="services"><div className="container"><div className="section-heading"><div className="section-label"><span>02</span>{t.servicesLabel}</div><h2>{t.servicesTitle[0]} <i>{t.servicesTitle[1]}</i></h2><p>{t.servicesText}</p></div><div className="service-grid">{t.services.map(([title, description, items], index) => <article className="service-card" key={title}><div className="card-top"><span>0{index + 1}</span><Arrow /></div><h3>{title}</h3><p>{description}</p><ul>{items.map((item) => <li key={item}>{item}</li>)}</ul></article>)}</div></div></section>
+    <section className="statement"><div className="container statement-inner"><p className="eyebrow light">{t.standardLabel}</p><blockquote>{t.quote}</blockquote><div className="standard-list">{t.standards.map((item) => <span key={item}>{item}</span>)}</div></div></section>
+    <section className="why section container"><div className="why-visual" aria-hidden="true"><div className="visual-seal"><Logo compact /><span>CONTAX<br />STANDARD</span></div><div className="visual-line" /><p>{t.visual[0]}<br />{t.visual[1]}</p></div><div className="why-copy"><div className="section-label"><span>03</span>{t.whyLabel}</div><h2>{t.why[0]} <i>{t.why[1]}</i></h2><div className="reasons">{t.reasons.map(([title, description], index) => <article key={title}><span>0{index + 1}</span><div><h3>{title}</h3><p>{description}</p></div></article>)}</div></div></section>
+    <section className="process section" id="process"><div className="container"><div className="process-header"><div className="section-label"><span>04</span>{t.processLabel}</div><h2>{t.process[0]} <i>{t.process[1]}</i></h2></div><div className="steps">{t.steps.map(([title, description], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{description}</p></article>)}</div></div></section>
+    <section className="industries section container"><div><div className="section-label"><span>05</span>{t.serveLabel}</div><h2>{t.serve[0]}<br /><i>{t.serve[1]}</i></h2></div><div className="industry-list">{t.industries.map((industry, index) => <div key={industry}><span>0{index + 1}</span>{industry}<Arrow /></div>)}</div></section>
+    <section className="cta" id="contact"><div className="container cta-inner"><div><p className="eyebrow light">{t.ctaLabel}</p><h2>{t.cta[0]} <i>{t.cta[1]}</i></h2></div><div className="cta-side"><p>{t.ctaText}</p><a className="button button-gold" href="mailto:info@contaxbs.com?subject=Consultation%20request">{t.schedule} <Arrow /></a></div></div></section>
+    <footer className="footer"><div className="container footer-top"><a className="brand footer-brand" href="#top"><Logo /></a><div><p className="footer-label">{t.exploreLabel}</p><a href="#about">{t.footerLinks[0]}</a><a href="#services">{t.footerLinks[1]}</a><a href="#process">{t.footerLinks[2]}</a></div><div><p className="footer-label">{t.contactLabel}</p><a href="tel:+17861234567">786.123.4567</a><a href="mailto:info@contaxbs.com">info@contaxbs.com</a><a href="https://www.contaxbs.com">contaxbs.com</a></div><p className="footer-note">{t.footerNote}</p></div><div className="container footer-bottom"><span>© {new Date().getFullYear()} Contax Business Solutions LLC</span><span>{t.footerSlogan}</span></div></footer>
+  </main>;
 }
