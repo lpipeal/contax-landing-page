@@ -23,7 +23,8 @@ a { color:inherit; text-decoration:none; }
 @media (max-width:480px){ .hero h1 { font-size:42px }.nav-cta { padding:10px 0; max-width:115px; text-align:right; line-height:1.25 }.brand small { font-size:6px }.service-grid,.steps { grid-template-columns:1fr }.section-heading h2 { font-size:40px }.footer-top { grid-template-columns:1fr; gap:27px }.footer-note { grid-column:auto }.hero-actions { flex-wrap:wrap; gap:19px }.growth-card { right:-80px }.why-visual { margin-inline:-20px }.statement blockquote { font-size:38px } }
 
 /* Official Contax identity and language selector */
-.brand { gap:0; letter-spacing:normal; }
+.brand { gap:0; padding:9px 13px; letter-spacing:normal; background:rgba(255,255,255,.98); border:1px solid rgba(255,255,255,.72); border-radius:3px; box-shadow:0 8px 24px rgba(0,0,0,.18); transition:transform .2s, box-shadow .2s; }
+.brand:hover { transform:translateY(-1px); box-shadow:0 11px 28px rgba(0,0,0,.23); }
 .brand-logo { width:210px; height:auto; display:block; object-fit:contain; }
 .nav-actions { display:flex; align-items:center; gap:23px; }
 .language-switcher { display:flex; align-items:center; gap:5px; color:#6f91aa; font-size:10px; font-weight:800; letter-spacing:.08em; }
@@ -31,5 +32,5 @@ a { color:inherit; text-decoration:none; }
 .language-switcher button.active { color:#fff; }
 .visual-seal { gap:12px; }
 .visual-seal .isotype { width:72px; height:72px; object-fit:contain; }
-@media (max-width:800px) { .nav-actions { gap:14px; } .brand-logo { width:168px; } }
-@media (max-width:480px) { .brand-logo { width:145px; } .language-switcher { font-size:9px; } }
+@media (max-width:800px) { .nav-actions { gap:14px; } .brand { padding:7px 10px; } .brand-logo { width:168px; } }
+@media (max-width:480px) { .brand { padding:6px 8px; } .brand-logo { width:145px; } .language-switcher { font-size:9px; } }
