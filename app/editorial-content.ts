@@ -17,6 +17,7 @@ export type VideoItem = {
   title: LocalizedText;
   status: PublicationStatus;
   duration?: string;
+  externalUrl?: string;
 };
 
 export type ServiceItem = {

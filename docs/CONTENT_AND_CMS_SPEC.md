@@ -264,3 +264,4 @@ Cada evento puede incluir identificadores de contenido, país e idioma, pero nun
 - Aliados y testimonios ya consumen la fuente de contenido local tipada.
 - Un aliado requiere estado `published` y `permissionConfirmed: true` antes de aparecer.
 - Los testimonios requieren estado `published`, `publicationConsent: true` y un mínimo de tres registros aprobados para habilitar la sección.
+- Tips y videos se publican únicamente con estado `published` y una URL externa válida; así los borradores no se presentan como contenido disponible.
