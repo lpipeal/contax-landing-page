@@ -42,7 +42,7 @@ export type CountryCoverage = {
 
 export type StrategicPartner = {
   id: string;
-  name: string;
+  name: LocalizedText;
   description: LocalizedText;
   countryIds: Array<"us" | "co">;
   logo?: string;
@@ -56,7 +56,7 @@ export type StrategicPartner = {
 export type ClientTestimonial = {
   id: string;
   quote: LocalizedText;
-  displayName: string;
+  displayName: LocalizedText;
   company?: string;
   industry?: string;
   countryId: "us" | "co";
@@ -139,17 +139,17 @@ export const videoLibrary: VideoItem[] = [
 
 // Datos de demostración para revisar la composición. Nunca se muestran fuera del modo preview.
 export const strategicPartners: StrategicPartner[] = [
-  { id: "demo-legal", name: "Aliado legal", description: { es: "Socio de demostración para servicios legales.", en: "Demonstration partner for legal services." }, countryIds: ["us", "co"], websiteUrl: "https://example.com/contax/partners/legal", permissionConfirmed: false, order: 1, status: "draft", isDemo: true },
-  { id: "demo-insurance", name: "Aliado de seguros", description: { es: "Socio de demostración para seguros.", en: "Demonstration partner for insurance." }, countryIds: ["us", "co"], websiteUrl: "https://example.com/contax/partners/insurance", permissionConfirmed: false, order: 2, status: "draft", isDemo: true },
-  { id: "demo-banking", name: "Aliado financiero", description: { es: "Socio de demostración para servicios financieros.", en: "Demonstration partner for financial services." }, countryIds: ["us", "co"], websiteUrl: "https://example.com/contax/partners/financial", permissionConfirmed: false, order: 3, status: "draft", isDemo: true },
-  { id: "demo-technology", name: "Aliado tecnológico", description: { es: "Socio de demostración para tecnología empresarial.", en: "Demonstration partner for business technology." }, countryIds: ["us", "co"], websiteUrl: "https://example.com/contax/partners/technology", permissionConfirmed: false, order: 4, status: "draft", isDemo: true },
-  { id: "demo-payroll", name: "Aliado de nómina", description: { es: "Socio de demostración para nómina.", en: "Demonstration partner for payroll." }, countryIds: ["us", "co"], websiteUrl: "https://example.com/contax/partners/payroll", permissionConfirmed: false, order: 5, status: "draft", isDemo: true },
-  { id: "demo-community", name: "Comunidad empresarial", description: { es: "Socio de demostración para la comunidad empresarial.", en: "Demonstration partner for the business community." }, countryIds: ["us", "co"], websiteUrl: "https://example.com/contax/partners/community", permissionConfirmed: false, order: 6, status: "draft", isDemo: true },
+  { id: "demo-legal", name: { es: "Aliado legal", en: "Legal partner" }, description: { es: "Socio de demostración para servicios legales.", en: "Demonstration partner for legal services." }, countryIds: ["us", "co"], websiteUrl: "https://example.com/contax/partners/legal", permissionConfirmed: false, order: 1, status: "draft", isDemo: true },
+  { id: "demo-insurance", name: { es: "Aliado de seguros", en: "Insurance partner" }, description: { es: "Socio de demostración para seguros.", en: "Demonstration partner for insurance." }, countryIds: ["us", "co"], websiteUrl: "https://example.com/contax/partners/insurance", permissionConfirmed: false, order: 2, status: "draft", isDemo: true },
+  { id: "demo-banking", name: { es: "Aliado financiero", en: "Financial partner" }, description: { es: "Socio de demostración para servicios financieros.", en: "Demonstration partner for financial services." }, countryIds: ["us", "co"], websiteUrl: "https://example.com/contax/partners/financial", permissionConfirmed: false, order: 3, status: "draft", isDemo: true },
+  { id: "demo-technology", name: { es: "Aliado tecnológico", en: "Technology partner" }, description: { es: "Socio de demostración para tecnología empresarial.", en: "Demonstration partner for business technology." }, countryIds: ["us", "co"], websiteUrl: "https://example.com/contax/partners/technology", permissionConfirmed: false, order: 4, status: "draft", isDemo: true },
+  { id: "demo-payroll", name: { es: "Aliado de nómina", en: "Payroll partner" }, description: { es: "Socio de demostración para nómina.", en: "Demonstration partner for payroll." }, countryIds: ["us", "co"], websiteUrl: "https://example.com/contax/partners/payroll", permissionConfirmed: false, order: 5, status: "draft", isDemo: true },
+  { id: "demo-community", name: { es: "Comunidad empresarial", en: "Business community" }, description: { es: "Socio de demostración para la comunidad empresarial.", en: "Demonstration partner for the business community." }, countryIds: ["us", "co"], websiteUrl: "https://example.com/contax/partners/community", permissionConfirmed: false, order: 6, status: "draft", isDemo: true },
 ];
 
 // La landing muestra testimonios solo con consentimiento, excepto estos ejemplos aislados en modo preview.
 export const clientTestimonials: ClientTestimonial[] = [
-  { id: "demo-testimonial-a", quote: { es: "Acompañamiento claro y organizado para tomar decisiones con más confianza.", en: "Clear, organized guidance for making decisions with greater confidence." }, displayName: "Cliente de demostración A", countryId: "us", order: 1, status: "draft", publicationConsent: false, isDemo: true },
-  { id: "demo-testimonial-b", quote: { es: "El proceso se explicó de manera sencilla y con atención a cada detalle.", en: "The process was explained simply, with attention to every detail." }, displayName: "Cliente de demostración B", countryId: "co", order: 2, status: "draft", publicationConsent: false, isDemo: true },
-  { id: "demo-testimonial-c", quote: { es: "Una referencia visual para mostrar cómo se presentará una experiencia aprobada.", en: "A visual reference for how an approved client experience will be presented." }, displayName: "Cliente de demostración C", countryId: "us", order: 3, status: "draft", publicationConsent: false, isDemo: true },
+  { id: "demo-testimonial-a", quote: { es: "Acompañamiento claro y organizado para tomar decisiones con más confianza.", en: "Clear, organized guidance for making decisions with greater confidence." }, displayName: { es: "Cliente de demostración A", en: "Demo client A" }, countryId: "us", order: 1, status: "draft", publicationConsent: false, isDemo: true },
+  { id: "demo-testimonial-b", quote: { es: "El proceso se explicó de manera sencilla y con atención a cada detalle.", en: "The process was explained simply, with attention to every detail." }, displayName: { es: "Cliente de demostración B", en: "Demo client B" }, countryId: "co", order: 2, status: "draft", publicationConsent: false, isDemo: true },
+  { id: "demo-testimonial-c", quote: { es: "Una referencia visual para mostrar cómo se presentará una experiencia aprobada.", en: "A visual reference for how an approved client experience will be presented." }, displayName: { es: "Cliente de demostración C", en: "Demo client C" }, countryId: "us", order: 3, status: "draft", publicationConsent: false, isDemo: true },
 ];
