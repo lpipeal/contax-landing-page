@@ -10,6 +10,10 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.contaxbs.com"),
   applicationName: "Contax Business Solutions",
   category: "business",
+  icons: {
+    icon: [{ url: "/contax-favicon.svg", type: "image/svg+xml" }],
+    shortcut: "/contax-favicon.svg",
+  },
   robots: {
     index: true,
     follow: true,
