@@ -5,7 +5,7 @@ Estado: aprobado como dirección visual de desarrollo
 
 ## Progreso de implementación — 10 de septiembre de 2026
 
-Se inició la Fase 1 y el primer recorrido visual. La landing ya incorpora la paleta, ondas, servicios, cobertura, planeación, recursos, videos, proceso, industrias, CTA y footer. En esta iteración se ajustó la navegación para corresponder con el mockup principal, se restauró el logo oficial a color sobre las superficies marinas y se añadió un menú móvil accesible. Los datos de contacto ahora viven en una configuración única y el bloque de planeación incluye un aviso educativo bilingüe. La compilación de producción finalizó correctamente.
+Se inició la Fase 1 y el primer recorrido visual. La landing ya incorpora la paleta, ondas, servicios, cobertura, planeación, recursos, videos, proceso, industrias, CTA y footer. En esta iteración se ajustó la navegación para corresponder con el mockup principal, se restauró el logo oficial a color sobre las superficies marinas y se añadió un menú móvil accesible. Los datos de contacto ahora viven en una configuración única y el bloque de planeación incluye un aviso educativo bilingüe. Los recursos y videos usan estados de publicación: el reel validado está disponible y los elementos aún no aprobados se muestran como próximos. La compilación de producción finalizó correctamente.
 
 ## Referencia definitiva
 
