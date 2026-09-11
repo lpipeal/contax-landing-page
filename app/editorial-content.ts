@@ -1,7 +1,7 @@
 export type Locale = "en" | "es";
 
 export type LocalizedText = Record<Locale, string>;
-type PublicationStatus = "draft" | "published";
+export type PublicationStatus = "draft" | "published";
 
 export type EducationalResource = {
   id: string;
@@ -31,6 +31,31 @@ export type CountryCoverage = {
   flag: string;
   name: LocalizedText;
   services: LocalizedText[];
+};
+
+export type StrategicPartner = {
+  id: string;
+  name: string;
+  description: LocalizedText;
+  countryIds: Array<"us" | "co">;
+  logo?: string;
+  websiteUrl?: string;
+  permissionConfirmed: boolean;
+  order: number;
+  status: PublicationStatus;
+};
+
+export type ClientTestimonial = {
+  id: string;
+  quote: LocalizedText;
+  displayName: string;
+  company?: string;
+  industry?: string;
+  countryId: "us" | "co";
+  serviceId?: string;
+  publicationConsent: boolean;
+  order: number;
+  status: PublicationStatus;
 };
 
 export const services: ServiceItem[] = [
@@ -96,3 +121,9 @@ export const videoLibrary: VideoItem[] = [
   { id: "llc-vs-corporation", title: { es: "LLC vs Corporation: ¿cuál conviene más?", en: "LLC vs. Corporation: which is best?" }, status: "draft" },
   { id: "itin", title: { es: "ITIN: requisitos y proceso paso a paso", en: "ITIN: requirements and process step by step" }, status: "draft" },
 ];
+
+// Agrega aquí aliados únicamente después de confirmar autorización de uso de marca.
+export const strategicPartners: StrategicPartner[] = [];
+
+// La landing mostrará testimonios solo cuando haya tres o más con consentimiento expreso.
+export const clientTestimonials: ClientTestimonial[] = [];

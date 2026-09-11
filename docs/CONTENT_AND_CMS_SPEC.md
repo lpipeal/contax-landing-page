@@ -258,3 +258,9 @@ Cada evento puede incluir identificadores de contenido, país e idioma, pero nun
 - Los datos de contacto provienen de una sola configuración.
 - La landing funciona aunque no existan aliados o testimonios aprobados.
 - Todos los contenidos públicos tienen idioma, jurisdicción y texto alternativo apropiados.
+
+## Estado de implementación
+
+- Aliados y testimonios ya consumen la fuente de contenido local tipada.
+- Un aliado requiere estado `published` y `permissionConfirmed: true` antes de aparecer.
+- Los testimonios requieren estado `published`, `publicationConsent: true` y un mínimo de tres registros aprobados para habilitar la sección.
