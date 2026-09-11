@@ -105,6 +105,7 @@ Objetivo: que la landing sea clara, inclusiva y medible.
 - Implementar enlaces de teléfono, correo, WhatsApp y agenda con etiquetas accesibles.
 - Revisar navegación por teclado, foco visible, contraste y textos alternativos.
 - La navegación principal destaca la sección activa durante el desplazamiento y conserva enlaces semánticos para teclado y lectores de pantalla.
+- Las transiciones y el desplazamiento suave respetan la preferencia del visitante de reducir movimiento.
 - Metadata, `sitemap.xml` y `robots.txt` ya están definidos para la landing. Los datos estructurados de organización y servicio se añadirán cuando estén confirmados los datos legales, la URL pública definitiva y los canales de contacto.
 - Definir eventos de conversión aprobados: clic en agenda, WhatsApp, teléfono, correo y recursos.
 
