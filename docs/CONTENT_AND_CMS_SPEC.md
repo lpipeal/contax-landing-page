@@ -268,3 +268,4 @@ Cada evento puede incluir identificadores de contenido, país e idioma, pero nun
 - Horarios, ubicación y asunto de contacto se conservan localizados en la configuración central y se consumen desde el footer y las llamadas a la acción.
 - Cuando aún no hay videos publicados, la biblioteca conserva un estado editorial visible y dirige al Instagram oficial; no expone títulos ni duraciones de borradores.
 - La vista local puede activar `NEXT_PUBLIC_CONTAX_CONTENT_MODE=preview` para mostrar tarjetas demo con enlaces reservados bajo `example.com`; dichas tarjetas permanecen ocultas en producción hasta reemplazarlas por URLs aprobadas.
+- El mismo modo preview habilita aliados y testimonios de demostración, sin permisos ni consentimiento de publicación, exclusivamente para revisar la composición completa de ambas secciones.

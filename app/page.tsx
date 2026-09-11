@@ -58,8 +58,8 @@ export default function Home() {
   const list = (name: string) => t[name] as string[];
   const publishedResources = educationalResources.filter((resource) => (resource.status === "published" || (showDemoContent && resource.isDemo)) && resource.externalUrl);
   const publishedVideos = videoLibrary.filter((video) => (video.status === "published" || (showDemoContent && video.isDemo)) && video.externalUrl);
-  const publishedPartners = strategicPartners.filter((partner) => partner.status === "published" && partner.permissionConfirmed).sort((a, b) => a.order - b.order);
-  const publishedTestimonials = clientTestimonials.filter((testimonial) => testimonial.status === "published" && testimonial.publicationConsent).sort((a, b) => a.order - b.order);
+  const publishedPartners = strategicPartners.filter((partner) => (partner.status === "published" && partner.permissionConfirmed) || (showDemoContent && partner.isDemo)).sort((a, b) => a.order - b.order);
+  const publishedTestimonials = clientTestimonials.filter((testimonial) => (testimonial.status === "published" && testimonial.publicationConsent) || (showDemoContent && testimonial.isDemo)).sort((a, b) => a.order - b.order);
   useEffect(() => { const stored = localStorage.getItem("contax-language"); setLanguage(stored === "en" || stored === "es" ? stored : navigator.language.startsWith("es") ? "es" : "en"); }, []);
   useEffect(() => { document.documentElement.lang = language; }, [language]);
   useEffect(() => {
