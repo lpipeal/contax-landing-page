@@ -266,3 +266,4 @@ Cada evento puede incluir identificadores de contenido, país e idioma, pero nun
 - Los testimonios requieren estado `published`, `publicationConsent: true` y un mínimo de tres registros aprobados para habilitar la sección.
 - Tips y videos se publican únicamente con estado `published` y una URL externa válida; así los borradores no se presentan como contenido disponible.
 - Horarios, ubicación y asunto de contacto se conservan localizados en la configuración central y se consumen desde el footer y las llamadas a la acción.
+- Cuando aún no hay videos publicados, la biblioteca conserva un estado editorial visible y dirige al Instagram oficial; no expone títulos ni duraciones de borradores.
