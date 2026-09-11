@@ -204,7 +204,7 @@ Conservar los mismos modelos detrás de una capa de acceso a datos. Un CMS futur
 ### Tips y videos
 
 - Mostrar únicamente elementos con estado `published`.
-- El modo local `preview` puede mostrar ejemplos con `isDemo: true` para revisar la composición; el despliegue de producción nunca los incluye.
+- El modo local `preview` puede mostrar ejemplos con `isDemo: true` para revisar la composición; el despliegue de producción los excluye explícitamente, aunque alguien cambie accidentalmente su estado a `published`.
 - Un solo recurso destacado por sección.
 - Las miniaturas deben mantener la identidad Contax y un texto corto.
 - Evitar reproducir varios videos automáticamente.

@@ -56,10 +56,11 @@ export default function Home() {
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const t = content[language];
   const list = (name: string) => t[name] as string[];
-  const publishedResources = educationalResources.filter((resource) => (resource.status === "published" || (showDemoContent && resource.isDemo)) && resource.externalUrl);
-  const publishedVideos = videoLibrary.filter((video) => (video.status === "published" || (showDemoContent && video.isDemo)) && video.externalUrl);
-  const publishedPartners = strategicPartners.filter((partner) => (partner.status === "published" && partner.permissionConfirmed) || (showDemoContent && partner.isDemo)).sort((a, b) => a.order - b.order);
-  const publishedTestimonials = clientTestimonials.filter((testimonial) => (testimonial.status === "published" && testimonial.publicationConsent) || (showDemoContent && testimonial.isDemo)).sort((a, b) => a.order - b.order);
+  const isVisibleEditorialItem = (item: { status: string; isDemo?: boolean }) => showDemoContent ? item.status === "published" || item.isDemo : item.status === "published" && !item.isDemo;
+  const publishedResources = educationalResources.filter((resource) => isVisibleEditorialItem(resource) && resource.externalUrl);
+  const publishedVideos = videoLibrary.filter((video) => isVisibleEditorialItem(video) && video.externalUrl);
+  const publishedPartners = strategicPartners.filter((partner) => (isVisibleEditorialItem(partner) && partner.status === "published" && partner.permissionConfirmed) || (showDemoContent && partner.isDemo)).sort((a, b) => a.order - b.order);
+  const publishedTestimonials = clientTestimonials.filter((testimonial) => (isVisibleEditorialItem(testimonial) && testimonial.status === "published" && testimonial.publicationConsent) || (showDemoContent && testimonial.isDemo)).sort((a, b) => a.order - b.order);
   useEffect(() => { const stored = localStorage.getItem("contax-language"); setLanguage(stored === "en" || stored === "es" ? stored : navigator.language.startsWith("es") ? "es" : "en"); }, []);
   useEffect(() => { document.documentElement.lang = language; }, [language]);
   useEffect(() => {
