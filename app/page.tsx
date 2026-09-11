@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { countryCoverage, educationalResources, services, videoLibrary } from "./editorial-content";
 import { siteConfig } from "./site-config";
 
@@ -10,7 +10,7 @@ type Content = Record<string, string | string[]>;
 
 const content: Record<Language, Content> = {
   es: {
-    nav: ["Inicio", "Servicios", "Nosotros", "Industrias", "Recursos", "Contacto"], schedule: "Agenda una consulta", skip: "Saltar al contenido", eyebrow: "Soluciones contables, tributarias y empresariales",
+    nav: ["Inicio", "Servicios", "Nosotros", "Industrias", "Recursos", "Contacto"], navLabel: "Navegación principal", openMenu: "Abrir menú", closeMenu: "Cerrar menú", schedule: "Agenda una consulta", skip: "Saltar al contenido", eyebrow: "Soluciones contables, tributarias y empresariales",
     hero: "Construimos empresas más sólidas.", heroAccent: "Protegemos tu crecimiento.", heroText: "Asesoría clara y estratégica para emprendedores, empresas en crecimiento e inversionistas que operan entre Estados Unidos y Colombia.", discover: "Conoce nuestros servicios",
     servicesLabel: "Nuestros servicios", servicesTitle: "Decisiones más claras. Negocios más fuertes.", servicesText: "Soluciones integrales para tus obligaciones, tu estructura y el siguiente paso de tu empresa.",
     coverageLabel: "Cobertura", coverageTitle: "Trabajamos contigo en Estados Unidos y Colombia.", coverageNote: "El alcance se confirma según tu situación, jurisdicción y necesidades.",
@@ -27,7 +27,7 @@ const content: Record<Language, Content> = {
     industries: ["Comercio y retail", "Construcción", "Salud", "Restaurantes", "Profesionales", "Servicios", "E-commerce"], partners: ["Servicios legales", "Seguros", "Banca", "Tecnología", "Nómina", "Comunidad empresarial"],
   },
   en: {
-    nav: ["Home", "Services", "About us", "Industries", "Resources", "Contact"], schedule: "Schedule a consultation", skip: "Skip to content", eyebrow: "Accounting, tax and business solutions",
+    nav: ["Home", "Services", "About us", "Industries", "Resources", "Contact"], navLabel: "Main navigation", openMenu: "Open menu", closeMenu: "Close menu", schedule: "Schedule a consultation", skip: "Skip to content", eyebrow: "Accounting, tax and business solutions",
     hero: "We build stronger businesses.", heroAccent: "We protect your growth.", heroText: "Clear, strategic advisory for entrepreneurs, growing companies and investors operating across the United States and Colombia.", discover: "Discover our services",
     servicesLabel: "Our services", servicesTitle: "Clearer decisions. Stronger businesses.", servicesText: "Integrated solutions for your obligations, structure and the next step of your business.",
     coverageLabel: "Coverage", coverageTitle: "We work with you in the United States and Colombia.", coverageNote: "Each service is confirmed based on your circumstances, jurisdiction and needs.",
@@ -52,15 +52,28 @@ function Logo({ footer = false }: { footer?: boolean }) { return <Image classNam
 export default function Home() {
   const [language, setLanguage] = useState<Language>("es");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
   const t = content[language];
   const list = (name: string) => t[name] as string[];
   useEffect(() => { const stored = localStorage.getItem("contax-language"); setLanguage(stored === "en" || stored === "es" ? stored : navigator.language.startsWith("es") ? "es" : "en"); }, []);
   useEffect(() => { document.documentElement.lang = language; }, [language]);
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      setMobileMenuOpen(false);
+      menuButtonRef.current?.focus();
+    };
+
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [mobileMenuOpen]);
   const changeLanguage = (next: Language) => { localStorage.setItem("contax-language", next); setLanguage(next); };
   const closeMobileMenu = () => setMobileMenuOpen(false);
 
   return <><a className="skip-link" href="#main-content">{t.skip as string}</a><main id="main-content">
-    <section className="hero" id="top"><nav className="nav container" aria-label="Main navigation"><a className="brand" href="#top" onClick={closeMobileMenu}><Logo /></a><div className="nav-links"><a href="#top">{list("nav")[0]}</a><a href="#services">{list("nav")[1]}</a><a href="#why">{list("nav")[2]}</a><a href="#industries">{list("nav")[3]}</a><a href="#resources">{list("nav")[4]}</a><a href="#contact">{list("nav")[5]}</a></div><div className="nav-actions"><div className="language-switcher" aria-label="Language selector"><button className={language === "en" ? "active" : ""} onClick={() => changeLanguage("en")} aria-pressed={language === "en"}>EN</button><span>/</span><button className={language === "es" ? "active" : ""} onClick={() => changeLanguage("es")} aria-pressed={language === "es"}>ES</button></div><a className="nav-cta" href="#contact">{t.schedule as string} <Arrow /></a><button className="menu-toggle" type="button" aria-expanded={mobileMenuOpen} aria-controls="mobile-navigation" onClick={() => setMobileMenuOpen((open) => !open)}><span className="sr-only">{mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}</span><i /><i /></button></div></nav><div className={mobileMenuOpen ? "mobile-menu is-open" : "mobile-menu"} id="mobile-navigation"><a href="#top" onClick={closeMobileMenu}>{list("nav")[0]}</a><a href="#services" onClick={closeMobileMenu}>{list("nav")[1]}</a><a href="#why" onClick={closeMobileMenu}>{list("nav")[2]}</a><a href="#industries" onClick={closeMobileMenu}>{list("nav")[3]}</a><a href="#resources" onClick={closeMobileMenu}>{list("nav")[4]}</a><a href="#contact" onClick={closeMobileMenu}>{list("nav")[5]}</a></div><div className="container hero-grid"><div className="hero-copy"><p className="eyebrow">{t.eyebrow as string}</p><h1>{t.hero as string}<br /><em>{t.heroAccent as string}</em></h1><p>{t.heroText as string}</p><div className="button-row"><a className="button gold" href="#contact">{t.schedule as string} <Arrow /></a><a className="inline-link light-link" href="#services">{t.discover as string} <Arrow /></a></div></div><div className="hero-symbol" aria-hidden="true"><Image src="/contax-isotype.png" alt="" width={420} height={420} priority /><div className="bars"><i /><i /><i /><i /></div></div></div><div className="hero-wave" aria-hidden="true" /></section>
+    <section className="hero" id="top"><nav className="nav container" aria-label={t.navLabel as string}><a className="brand" href="#top" onClick={closeMobileMenu}><Logo /></a><div className="nav-links"><a href="#top">{list("nav")[0]}</a><a href="#services">{list("nav")[1]}</a><a href="#why">{list("nav")[2]}</a><a href="#industries">{list("nav")[3]}</a><a href="#resources">{list("nav")[4]}</a><a href="#contact">{list("nav")[5]}</a></div><div className="nav-actions"><div className="language-switcher" aria-label="Language selector"><button className={language === "en" ? "active" : ""} onClick={() => changeLanguage("en")} aria-pressed={language === "en"}>EN</button><span>/</span><button className={language === "es" ? "active" : ""} onClick={() => changeLanguage("es")} aria-pressed={language === "es"}>ES</button></div><a className="nav-cta" href="#contact">{t.schedule as string} <Arrow /></a><button className="menu-toggle" ref={menuButtonRef} type="button" aria-expanded={mobileMenuOpen} aria-controls="mobile-navigation" onClick={() => setMobileMenuOpen((open) => !open)}><span className="sr-only">{mobileMenuOpen ? t.closeMenu as string : t.openMenu as string}</span><i /><i /></button></div></nav><div className={mobileMenuOpen ? "mobile-menu is-open" : "mobile-menu"} id="mobile-navigation"><a href="#top" onClick={closeMobileMenu}>{list("nav")[0]}</a><a href="#services" onClick={closeMobileMenu}>{list("nav")[1]}</a><a href="#why" onClick={closeMobileMenu}>{list("nav")[2]}</a><a href="#industries" onClick={closeMobileMenu}>{list("nav")[3]}</a><a href="#resources" onClick={closeMobileMenu}>{list("nav")[4]}</a><a href="#contact" onClick={closeMobileMenu}>{list("nav")[5]}</a></div><div className="container hero-grid"><div className="hero-copy"><p className="eyebrow">{t.eyebrow as string}</p><h1>{t.hero as string}<br /><em>{t.heroAccent as string}</em></h1><p>{t.heroText as string}</p><div className="button-row"><a className="button gold" href="#contact">{t.schedule as string} <Arrow /></a><a className="inline-link light-link" href="#services">{t.discover as string} <Arrow /></a></div></div><div className="hero-symbol" aria-hidden="true"><Image src="/contax-isotype.png" alt="" width={420} height={420} priority /><div className="bars"><i /><i /><i /><i /></div></div></div><div className="hero-wave" aria-hidden="true" /></section>
 
     <section className="services section" id="services"><div className="container"><Header label={t.servicesLabel as string} title={t.servicesTitle as string} text={t.servicesText as string} /><div className="service-grid">{services.map((service, index) => <article className="service-card" key={service.id}><Icon index={index} /><h3>{service.title[language]}</h3><p>{service.description[language]}</p><a href="#contact" aria-label={`${service.title[language]}: ${t.schedule as string}`}><Arrow /></a></article>)}</div></div></section>
     <section className="coverage section" id="coverage"><div className="container"><div className="coverage-heading"><div><p className="section-kicker">✦ {t.coverageLabel as string}</p><h2>{t.coverageTitle as string}</h2></div><p>{t.coverageNote as string}</p></div><div className="country-grid">{countryCoverage.map((country) => <Country key={country.id} name={country.name[language]} flag={country.flag} entries={country.services.map((service) => service[language])} />)}<div className="map-mark" aria-hidden="true"><span>✦</span><b>US</b><i>CO</i></div></div></div></section>
