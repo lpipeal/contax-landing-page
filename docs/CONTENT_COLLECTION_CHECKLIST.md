@@ -69,7 +69,7 @@ Preparar inicialmente entre seis y doce recursos:
 
 Recurso inicial identificado:
 
-- [ ] Reel de planeación tributaria: `https://www.instagram.com/reel/DWkVUxjkYXr/`.
+- [x] Reel de planeación tributaria: `https://www.instagram.com/reel/DWkVUxjkYXr/`.
 
 ## 6. Biblioteca de videos
 

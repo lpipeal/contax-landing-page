@@ -5,7 +5,9 @@ Estado: aprobado como dirección visual de desarrollo
 
 ## Progreso de implementación — 10 de septiembre de 2026
 
-Se inició la Fase 1 y el primer recorrido visual. La landing ya incorpora la paleta, ondas, servicios, cobertura, planeación, recursos, videos, proceso, industrias, CTA y footer. En esta iteración se ajustó la navegación para corresponder con el mockup principal, se restauró el logo oficial a color sobre las superficies marinas y se añadió un menú móvil accesible. Los datos de contacto ahora viven en una configuración única y el bloque de planeación incluye un aviso educativo bilingüe. Servicios, cobertura, recursos y videos usan contenido localizado: el reel validado está disponible y los elementos aún no aprobados se muestran como próximos. La compilación de producción finalizó correctamente.
+La estructura y el recorrido principal están implementados: paleta, ondas, servicios, cobertura, planeación, recursos, proceso, industrias, CTA y footer. La navegación se ajustó al mockup principal, el logo oficial conserva su color sobre las superficies marinas y el menú móvil incluye comportamiento accesible. Los datos de contacto están centralizados y localizados; el bloque de planeación incluye un aviso educativo bilingüe.
+
+Los bloques editoriales muestran únicamente contenido publicado: el reel validado está disponible y la biblioteca de videos aparecerá cuando se entreguen videos con URL válida. Aliados y testimonios permanecen ocultos hasta tener las autorizaciones requeridas. La compilación de producción finaliza correctamente. Antes de publicar aún deben confirmarse contactos, cobertura por país, contenidos legales y una validación visual en los tamaños objetivo.
 
 ## Referencia definitiva
 
@@ -167,11 +169,11 @@ Salida: versión candidata para aprobación de marca y publicación.
 - [ ] Navegación por teclado, foco y contraste revisados.
 - [ ] Imágenes tienen texto alternativo y dimensiones definidas.
 - [x] Build de producción finaliza correctamente.
-- [ ] No quedan nombres, logos, testimonios o promesas de muestra en producción.
+- [x] No quedan nombres, logos ni testimonios de muestra en producción.
 
 ### E. Control de entrega
 
-- [ ] Cambios organizados por commits pequeños dentro de `refactor`.
+- [x] Cambios organizados por commits pequeños dentro de `refactor`.
 - [ ] Revisión visual final aprobada por Contax.
 - [ ] Contenido legal y permisos aprobados.
 - [ ] Plan de despliegue y responsable de atención de mensajes confirmados.
