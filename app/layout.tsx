@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Contax Business Solutions | Strategic Accounting & Tax Advisory",
-  description: "Accounting, tax and business advisory for entrepreneurs, growing companies and international investors in the United States.",
+  title: "Contax Business Solutions | Soluciones contables y tributarias",
+  description: "Asesoría contable, tributaria y empresarial para empresas y emprendedores en Estados Unidos y Colombia.",
   metadataBase: new URL("https://www.contaxbs.com"),
   openGraph: {
     title: "Contax Business Solutions | Strategic Accounting & Tax Advisory",
