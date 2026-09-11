@@ -76,3 +76,7 @@ Antes de publicar también se debe validar visualmente en 390 px, 768 px y 1440 
 - Cambios grandes: commits pequeños por fase (cimientos visuales, contenido, conversión y calidad).
 
 Repositorio: `git@github.com:lpipeal/contax-landing-page.git`.
+
+## Vista de contenido demo
+
+En desarrollo local, `.env.local` activa tarjetas de recursos y videos con enlaces de demostración bajo `example.com`. Esas tarjetas solo sirven para evaluar la composición visual y se ocultan en una compilación de producción mientras `NEXT_PUBLIC_CONTAX_CONTENT_MODE` no sea `preview`.

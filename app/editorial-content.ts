@@ -9,7 +9,9 @@ export type EducationalResource = {
   title: LocalizedText;
   status: PublicationStatus;
   externalUrl?: string;
+  externalLabel?: LocalizedText;
   featured?: boolean;
+  isDemo?: boolean;
 };
 
 export type VideoItem = {
@@ -18,7 +20,11 @@ export type VideoItem = {
   status: PublicationStatus;
   duration?: string;
   externalUrl?: string;
+  isDemo?: boolean;
 };
+
+// El modo preview permite revisar tarjetas completas sin exponer contenido demo en producción.
+export const showDemoContent = process.env.NEXT_PUBLIC_CONTAX_CONTENT_MODE === "preview";
 
 export type ServiceItem = {
   id: string;
@@ -107,20 +113,26 @@ export const educationalResources: EducationalResource[] = [
     type: { es: "ARTÍCULO", en: "ARTICLE" },
     title: { es: "Cómo organizar tus gastos deducibles", en: "How to organize deductible expenses" },
     status: "draft",
+    externalUrl: "https://example.com/contax/resources/deductible-expenses",
+    externalLabel: { es: "Leer artículo", en: "Read article" },
+    isDemo: true,
   },
   {
     id: "business-deadlines-guide",
     type: { es: "GUÍA", en: "GUIDE" },
     title: { es: "Fechas clave para tu empresa", en: "Key dates for your business" },
     status: "draft",
+    externalUrl: "https://example.com/contax/resources/business-deadlines",
+    externalLabel: { es: "Ver guía", en: "View guide" },
+    isDemo: true,
   },
 ];
 
 export const videoLibrary: VideoItem[] = [
-  { id: "tax-planning", title: { es: "¿Qué es la planeación tributaria y por qué tu negocio la necesita?", en: "What is tax planning and why does your business need it?" }, status: "draft" },
-  { id: "deductions", title: { es: "Deducciones fiscales que muchos empresarios olvidan", en: "Tax deductions many owners overlook" }, status: "draft" },
-  { id: "llc-vs-corporation", title: { es: "LLC vs Corporation: ¿cuál conviene más?", en: "LLC vs. Corporation: which is best?" }, status: "draft" },
-  { id: "itin", title: { es: "ITIN: requisitos y proceso paso a paso", en: "ITIN: requirements and process step by step" }, status: "draft" },
+  { id: "tax-planning", title: { es: "¿Qué es la planeación tributaria y por qué tu negocio la necesita?", en: "What is tax planning and why does your business need it?" }, status: "draft", duration: "06:45", externalUrl: "https://example.com/contax/videos/tax-planning", isDemo: true },
+  { id: "deductions", title: { es: "Deducciones fiscales que muchos empresarios olvidan", en: "Tax deductions many owners overlook" }, status: "draft", duration: "04:12", externalUrl: "https://example.com/contax/videos/deductions", isDemo: true },
+  { id: "llc-vs-corporation", title: { es: "LLC vs Corporation: ¿cuál conviene más?", en: "LLC vs. Corporation: which is best?" }, status: "draft", duration: "05:18", externalUrl: "https://example.com/contax/videos/llc-vs-corporation", isDemo: true },
+  { id: "itin", title: { es: "ITIN: requisitos y proceso paso a paso", en: "ITIN: requirements and process step by step" }, status: "draft", duration: "05:27", externalUrl: "https://example.com/contax/videos/itin", isDemo: true },
 ];
 
 // Agrega aquí aliados únicamente después de confirmar autorización de uso de marca.
