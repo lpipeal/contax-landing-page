@@ -9,6 +9,8 @@ La estructura y el recorrido principal están implementados: paleta, ondas, serv
 
 En producción, los bloques editoriales muestran únicamente contenido publicado: el reel validado está disponible y aliados, testimonios, videos y recursos pendientes permanecen ocultos hasta contar con URLs, permisos y aprobación editorial. Para revisar la composición completa existe un modo local `preview`, activado solo mediante `NEXT_PUBLIC_CONTAX_CONTENT_MODE=preview`: muestra tarjetas claramente provisionales con URLs reservadas de `example.com`; estas nunca aparecen en producción. La compilación finaliza correctamente en ambos modos y la vista móvil fue revisada visualmente. Antes de publicar aún deben confirmarse contactos, cobertura por país, contenidos legales y una validación visual final en tablet y escritorio.
 
+La revisión de fidelidad visual recuperó tres rasgos del mockup principal: un único gráfico de crecimiento en el hero, el contraste blanco–azul del bloque de planeación tributaria y la marca de agua institucional en “Por qué Contax”. En móvil, el bloque tributario se apila como una superficie clara seguida por el panel marino de acciones.
+
 ## Referencia definitiva
 
 El mockup principal es [contax-primary-mockup.png](design/contax-primary-mockup.png). Esta imagen define la composición, el orden de las secciones, el ritmo visual y el uso de la marca para la primera versión de la landing.
