@@ -7,7 +7,7 @@ Estado: aprobado como dirección visual de desarrollo
 
 La estructura y el recorrido principal están implementados: paleta, ondas, servicios, cobertura, planeación, recursos, proceso, industrias, CTA y footer. La navegación se ajustó al mockup principal, el logo oficial conserva su color sobre las superficies marinas y el menú móvil incluye comportamiento accesible. Los datos de contacto están centralizados y localizados; el bloque de planeación incluye un aviso educativo bilingüe.
 
-Los bloques editoriales muestran únicamente contenido publicado: el reel validado está disponible y la biblioteca de videos aparecerá cuando se entreguen videos con URL válida. Aliados y testimonios permanecen ocultos hasta tener las autorizaciones requeridas. La compilación de producción finaliza correctamente. Antes de publicar aún deben confirmarse contactos, cobertura por país, contenidos legales y una validación visual en los tamaños objetivo.
+En producción, los bloques editoriales muestran únicamente contenido publicado: el reel validado está disponible y aliados, testimonios, videos y recursos pendientes permanecen ocultos hasta contar con URLs, permisos y aprobación editorial. Para revisar la composición completa existe un modo local `preview`, activado solo mediante `NEXT_PUBLIC_CONTAX_CONTENT_MODE=preview`: muestra tarjetas claramente provisionales con URLs reservadas de `example.com`; estas nunca aparecen en producción. La compilación finaliza correctamente en ambos modos y la vista móvil fue revisada visualmente. Antes de publicar aún deben confirmarse contactos, cobertura por país, contenidos legales y una validación visual final en tablet y escritorio.
 
 ## Referencia definitiva
 
@@ -157,7 +157,7 @@ Salida: versión candidata para aprobación de marca y publicación.
 - [x] Componentes de tarjetas: servicio, recurso, video, aliado y testimonio definidos.
 - [x] Componentes de cobertura y planeación tributaria definidos.
 - [x] Estados vacíos y de contenido pendiente definidos.
-- [ ] Diseño responsive validado para 390 px, 768 px y 1440 px.
+- [ ] Diseño responsive validado para 390 px, 768 px y 1440 px (390 px revisado; faltan 768 px y 1440 px).
 
 ### D. Desarrollo y calidad
 

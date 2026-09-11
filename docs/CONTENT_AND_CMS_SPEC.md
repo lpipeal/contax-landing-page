@@ -145,7 +145,7 @@ La landing no recibirá archivos directamente. La administración guardará una 
 ```ts
 type Partner = {
   id: string;
-  name: string;
+  name: LocalizedText;
   category: "legal" | "insurance" | "banking" | "technology" | "payroll" | "community";
   description: LocalizedText;
   logo: string;
@@ -157,7 +157,7 @@ type Partner = {
 };
 ```
 
-`permissionConfirmed` debe ser verdadero antes de mostrar la marca.
+`permissionConfirmed` debe ser verdadero antes de mostrar la marca. El nombre se almacena como texto localizado para que la página no mezcle idiomas; una marca real puede repetir el mismo valor en ambos idiomas.
 
 ### Testimonio
 
@@ -165,7 +165,7 @@ type Partner = {
 type Testimonial = {
   id: string;
   quote: LocalizedText;
-  displayName: string;
+  displayName: LocalizedText;
   company?: string;
   industry?: string;
   countryId: "us" | "co";
@@ -204,6 +204,7 @@ Conservar los mismos modelos detrás de una capa de acceso a datos. Un CMS futur
 ### Tips y videos
 
 - Mostrar únicamente elementos con estado `published`.
+- El modo local `preview` puede mostrar ejemplos con `isDemo: true` para revisar la composición; el despliegue de producción nunca los incluye.
 - Un solo recurso destacado por sección.
 - Las miniaturas deben mantener la identidad Contax y un texto corto.
 - Evitar reproducir varios videos automáticamente.
