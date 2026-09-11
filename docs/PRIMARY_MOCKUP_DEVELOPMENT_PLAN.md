@@ -104,7 +104,7 @@ Objetivo: que la landing sea clara, inclusiva y medible.
 - Añadir formulario breve si se aprueba como canal de contacto.
 - Implementar enlaces de teléfono, correo, WhatsApp y agenda con etiquetas accesibles.
 - Revisar navegación por teclado, foco visible, contraste y textos alternativos.
-- Añadir metadata bilingüe, sitemap, robots, datos estructurados de organización y servicio cuando los datos legales estén confirmados.
+- Metadata, `sitemap.xml` y `robots.txt` ya están definidos para la landing. Los datos estructurados de organización y servicio se añadirán cuando estén confirmados los datos legales, la URL pública definitiva y los canales de contacto.
 - Definir eventos de conversión aprobados: clic en agenda, WhatsApp, teléfono, correo y recursos.
 
 Salida: experiencia preparada para publicar y medir.
