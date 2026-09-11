@@ -7,6 +7,7 @@ export type EducationalResource = {
   id: string;
   type: LocalizedText;
   title: LocalizedText;
+  countryIds: Array<"us" | "co">;
   status: PublicationStatus;
   externalUrl?: string;
   externalLabel?: LocalizedText;
@@ -17,6 +18,8 @@ export type EducationalResource = {
 export type VideoItem = {
   id: string;
   title: LocalizedText;
+  category: LocalizedText;
+  countryIds: Array<"us" | "co">;
   status: PublicationStatus;
   duration?: string;
   externalUrl?: string;
@@ -106,6 +109,7 @@ export const educationalResources: EducationalResource[] = [
     id: "tax-planning-reel",
     type: { es: "REEL DE INSTAGRAM", en: "INSTAGRAM REEL" },
     title: { es: "Planeación tributaria", en: "Tax planning" },
+    countryIds: ["us", "co"],
     status: "published",
     externalUrl: "https://www.instagram.com/reel/DWkVUxjkYXr/",
     featured: true,
@@ -114,6 +118,7 @@ export const educationalResources: EducationalResource[] = [
     id: "deductible-expenses-guide",
     type: { es: "ARTÍCULO", en: "ARTICLE" },
     title: { es: "Cómo organizar tus gastos deducibles", en: "How to organize deductible expenses" },
+    countryIds: ["us"],
     status: "draft",
     externalUrl: "https://example.com/contax/resources/deductible-expenses",
     externalLabel: { es: "Leer artículo", en: "Read article" },
@@ -123,6 +128,7 @@ export const educationalResources: EducationalResource[] = [
     id: "business-deadlines-guide",
     type: { es: "GUÍA", en: "GUIDE" },
     title: { es: "Fechas clave para tu empresa", en: "Key dates for your business" },
+    countryIds: ["us", "co"],
     status: "draft",
     externalUrl: "https://example.com/contax/resources/business-deadlines",
     externalLabel: { es: "Ver guía", en: "View guide" },
@@ -131,10 +137,10 @@ export const educationalResources: EducationalResource[] = [
 ];
 
 export const videoLibrary: VideoItem[] = [
-  { id: "tax-planning", title: { es: "¿Qué es la planeación tributaria y por qué tu negocio la necesita?", en: "What is tax planning and why does your business need it?" }, status: "draft", duration: "06:45", externalUrl: "https://example.com/contax/videos/tax-planning", isDemo: true },
-  { id: "deductions", title: { es: "Deducciones fiscales que muchos empresarios olvidan", en: "Tax deductions many owners overlook" }, status: "draft", duration: "04:12", externalUrl: "https://example.com/contax/videos/deductions", isDemo: true },
-  { id: "llc-vs-corporation", title: { es: "LLC vs Corporation: ¿cuál conviene más?", en: "LLC vs. Corporation: which is best?" }, status: "draft", duration: "05:18", externalUrl: "https://example.com/contax/videos/llc-vs-corporation", isDemo: true },
-  { id: "itin", title: { es: "ITIN: requisitos y proceso paso a paso", en: "ITIN: requirements and process step by step" }, status: "draft", duration: "05:27", externalUrl: "https://example.com/contax/videos/itin", isDemo: true },
+  { id: "tax-planning", title: { es: "¿Qué es la planeación tributaria y por qué tu negocio la necesita?", en: "What is tax planning and why does your business need it?" }, category: { es: "Planeación", en: "Planning" }, countryIds: ["us", "co"], status: "draft", duration: "06:45", externalUrl: "https://example.com/contax/videos/tax-planning", isDemo: true },
+  { id: "deductions", title: { es: "Deducciones fiscales que muchos empresarios olvidan", en: "Tax deductions many owners overlook" }, category: { es: "Impuestos", en: "Taxes" }, countryIds: ["us"], status: "draft", duration: "04:12", externalUrl: "https://example.com/contax/videos/deductions", isDemo: true },
+  { id: "llc-vs-corporation", title: { es: "LLC vs Corporation: ¿cuál conviene más?", en: "LLC vs. Corporation: which is best?" }, category: { es: "Negocios", en: "Business" }, countryIds: ["us"], status: "draft", duration: "05:18", externalUrl: "https://example.com/contax/videos/llc-vs-corporation", isDemo: true },
+  { id: "itin", title: { es: "ITIN: requisitos y proceso paso a paso", en: "ITIN: requirements and process step by step" }, category: { es: "ITIN", en: "ITIN" }, countryIds: ["us"], status: "draft", duration: "05:27", externalUrl: "https://example.com/contax/videos/itin", isDemo: true },
 ];
 
 // Datos de demostración para revisar la composición. Nunca se muestran fuera del modo preview.
