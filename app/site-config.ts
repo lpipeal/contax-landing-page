@@ -2,6 +2,11 @@ export const siteConfig = {
   contact: {
     phoneDisplay: "+1 (346) 339-8946",
     phoneHref: "tel:+13463398946",
+    whatsappUrl: "https://wa.me/13463398946",
+    whatsappMessage: {
+      es: "Hola, quiero agendar una consulta con Contax.",
+      en: "Hello, I would like to schedule a consultation with Contax.",
+    },
     email: "contaxbsllc@gmail.com",
     instagramUrl: "https://www.instagram.com/contax_bs/",
     location: {
