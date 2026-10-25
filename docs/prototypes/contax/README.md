@@ -68,9 +68,9 @@ Titulares: Georgia/Times New Roman. Cuerpo: Arial/Helvetica. Se usan fuentes del
 
 ### Logo sobre fondos oscuros
 
-Cabecera y footer usan `assets/contax-logo-on-dark.svg`: nombre y subtítulo en marfil `#F9F8F5`, con símbolo, oro y turquesa originales. Se retiró el filtro global de brillo/resplandor. El PNG original permanece intacto para fondos claros.
+Cabecera y footer usan `assets/contax-logo-gold-outline.svg`: el logo conserva todos sus colores originales y recibe únicamente un contorno en el oro de la web `#C79845`. El trazo recorre el símbolo, el nombre, el subtítulo y los detalles decorativos. La propuesta anterior con letras en marfil fue retirada. El PNG original permanece intacto.
 
-La variante se deriva de forma determinista del PNG incrustado: una selección cromática aclara las zonas azules del nombre y una región separada aclara el subtítulo. Conserva geometría, proporciones y transparencia; el símbolo queda fuera de estas selecciones. Este SVG contiene el PNG de origen y filtros, **no es una vectorización**. Una exportación enteramente vectorial requiere la fuente de diseño original.
+La variante se deriva de forma determinista del PNG incrustado: se expande su silueta alfa 3,2 unidades del archivo original, se resta la silueta inicial y se colorea solo el borde añadido. El PNG se compone encima con sus colores intactos. Un margen transparente evita recortar los extremos del trazo. El grosor equivale aproximadamente a 0,51 px en una cabecera de 238 px y a 0,38 px en 175 px. No se añaden desenfoques ni resplandores. Este SVG contiene el PNG de origen y filtros, **no es una vectorización**. Una exportación enteramente vectorial requiere la fuente de diseño original.
 
 Para regenerar la variante desde la raíz del repositorio:
 
@@ -98,7 +98,7 @@ No hay CMS, carga de videos, backend, envío de formularios, reserva de agenda n
 - Recursos, estado de videos propuestos, cambio de idioma y persistencia al recargar.
 - Menú móvil, navegación a Recursos, Escape y devolución del foco.
 - Anclas internas sin destinos faltantes y ausencia de errores o advertencias en la consola de la sesión revisada.
-- Variante clara del logo cargada en cabecera y footer, sin filtros CSS globales; revisión visual a 1440 px y 390 px y comparación a 238/175 px. Capturas de las tres composiciones actualizadas.
+- Variante de delineado dorado cargada en cabecera y footer, sin recoloreado de las superficies originales ni filtros CSS globales; revisión visual a 1440 px y 390 px y comparación a 238/175 px. Capturas de las tres composiciones actualizadas.
 
 No se enviaron mensajes ni se probó una conversación real con WhatsApp. No se afirma una auditoría completa de accesibilidad, regresión de Next.js ni validación en dispositivos físicos. La apertura directa bajo `file://` no se pudo verificar por la restricción del navegador integrado.
 
