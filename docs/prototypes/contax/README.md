@@ -70,7 +70,7 @@ Titulares: Georgia/Times New Roman. Cuerpo: Arial/Helvetica. Se usan fuentes del
 
 Cabecera y footer usan `assets/contax-logo-gold-outline.svg`: el logo conserva todos sus colores originales y recibe únicamente un contorno en el oro de la web `#C79845`. El trazo recorre el símbolo, el nombre, el subtítulo y los detalles decorativos. La propuesta anterior con letras en marfil fue retirada. El PNG original permanece intacto.
 
-La variante se deriva de forma determinista del PNG incrustado: se expande su silueta alfa 3,2 unidades del archivo original, se resta la silueta inicial y se colorea solo el borde añadido. El PNG se compone encima con sus colores intactos. Un margen transparente evita recortar los extremos del trazo. El grosor equivale aproximadamente a 0,51 px en una cabecera de 238 px y a 0,38 px en 175 px. No se añaden desenfoques ni resplandores. Este SVG contiene el PNG de origen y filtros, **no es una vectorización**. Una exportación enteramente vectorial requiere la fuente de diseño original.
+La variante se deriva de forma determinista del PNG incrustado: se expande su silueta alfa 1,4 unidades del archivo original, se resta la silueta inicial y se colorea solo el borde añadido. El PNG se compone encima con sus colores intactos. Un margen transparente evita recortar los extremos del trazo. El contorno se afinó un 56 % frente a la primera propuesta dorada: equivale aproximadamente a 0,22 px en una cabecera de 238 px y a 0,16 px en 175 px. No se añaden desenfoques ni resplandores. Este SVG contiene el PNG de origen y filtros, **no es una vectorización**. Una exportación enteramente vectorial requiere la fuente de diseño original.
 
 Para regenerar la variante desde la raíz del repositorio:
 

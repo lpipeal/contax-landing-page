@@ -13,7 +13,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.
     <image id="source" width="1473" height="340" xlink:href="data:image/png;base64,${source}"/>
     <filter id="gold-outline" filterUnits="userSpaceOnUse" x="-6" y="-6" width="1485" height="352" color-interpolation-filters="sRGB">
       <!-- Extend only the alpha silhouette; keep every original color on top. -->
-      <feMorphology in="SourceAlpha" operator="dilate" radius="3.2" result="expanded"/>
+      <feMorphology in="SourceAlpha" operator="dilate" radius="1.4" result="expanded"/>
       <feComposite in="expanded" in2="SourceAlpha" operator="out" result="rim"/>
       <feFlood flood-color="#C79845" result="gold"/>
       <feComposite in="gold" in2="rim" operator="in" result="outline"/>
