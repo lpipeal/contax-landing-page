@@ -8,7 +8,7 @@ Landing bilingüe de Contax Business Solutions para presentar servicios contable
 - Rama base: `master`.
 - Stack: Next.js, React, TypeScript y CSS.
 - Idiomas: español e inglés.
-- Estado actual: mockup principal aprobado; plan de desarrollo y checklist listos.
+- Estado actual: landing implementada y prototipo HTML navegable basado en el mockup principal, disponible para revisión visual.
 
 ## Dirección de marca
 
@@ -39,6 +39,8 @@ La regla visual del refactor es: **el azul domina, el oro dirige y el turquesa f
 
 ## Documentación
 
+- [Prototipo HTML de Contax: entrada](docs/prototypes/contax/index.html)
+- [Guía, recorridos y validación del prototipo](docs/prototypes/contax/README.md)
 - [Auditoría de marca y plan de refactor](docs/CONTAX_LANDING_AUDIT_AND_REFACTOR_PLAN.md)
 - [Especificación de contenido y administración](docs/CONTENT_AND_CMS_SPEC.md)
 - [Checklist de recopilación de contenido](docs/CONTENT_COLLECTION_CHECKLIST.md)

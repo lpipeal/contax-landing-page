@@ -8,7 +8,7 @@ Esta lista reúne las decisiones y materiales que Contax debe entregar o confirm
 - [ ] Logo horizontal para fondo oscuro o versión monocromática.
 - [ ] Isotipo en SVG o PNG transparente de alta resolución.
 - [ ] Teléfono oficial.
-- [ ] Número de WhatsApp y mensaje inicial sugerido.
+- [x] Número de WhatsApp confirmado: +1 (346) 339-8946. Mensaje inicial ES/EN sugerido e implementado.
 - [ ] Email oficial.
 - [ ] Dominio oficial.
 - [ ] Instagram, Facebook y LinkedIn oficiales.
