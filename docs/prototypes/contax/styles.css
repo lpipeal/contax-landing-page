@@ -64,7 +64,7 @@ h1, h2 { font-family: var(--serif); font-weight: 400; }
 .hero { position: relative; overflow: hidden; min-height: 625px; background: radial-gradient(ellipse at 68% 35%, #0a355c66, transparent 46%), linear-gradient(110deg, #02142b, #03172e 60%, #051b39); color: #fff; }
 .nav-wrap { position: relative; z-index: 5; display: flex; align-items: center; gap: 32px; min-height: 91px; }
 .brand { display: block; flex: 0 0 auto; width: 238px; }
-.brand img { width: 100%; filter: brightness(1.55) drop-shadow(0 0 .55px #e0e6edb3); }
+.brand img { width: 100%; }
 .desktop-nav { display: flex; align-items: center; justify-content: center; gap: 24px; margin-left: auto; }
 .desktop-nav a { position: relative; padding-block: 12px; white-space: nowrap; font-size: 11px; }
 .desktop-nav a:hover, .desktop-nav a[aria-current] { color: #dfb361; }

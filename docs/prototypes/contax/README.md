@@ -2,7 +2,7 @@
 
 Fecha: 25 de octubre de 2026. Estado: propuesta navegable para revisión visual.
 
-Entrada: [index.html](index.html). Referencia: [mockup principal](../../design/contax-primary-mockup.png). Este prototipo vive en la rama `refactor`, junto al proyecto existente; la aplicación Next.js conserva su implementación actual.
+Entrada: [index.html](index.html). Referencia: [mockup principal](../../design/contax-primary-mockup.png). [Comparación del logo sobre azul](logo-preview.html). Este prototipo vive en la rama `refactor`, junto al proyecto existente; la aplicación Next.js conserva su implementación actual.
 
 ## Abrir y revisar
 
@@ -66,6 +66,20 @@ Titulares: Georgia/Times New Roman. Cuerpo: Arial/Helvetica. Se usan fuentes del
 
 `assets/contax-logo.png`, `assets/contax-isotype.png` y el favicon son copias de los recursos existentes en `public/`. `growth-scene.svg` es una ilustración vectorial para el hero y el cierre, no un reemplazo del logo. Ondas, mapa ilustrativo e iconos también son SVG; se mantienen nítidos al ampliar. La resolución de los logos PNG conserva la calidad del archivo de origen.
 
+### Logo sobre fondos oscuros
+
+Cabecera y footer usan `assets/contax-logo-on-dark.svg`: nombre y subtítulo en marfil `#F9F8F5`, con símbolo, oro y turquesa originales. Se retiró el filtro global de brillo/resplandor. El PNG original permanece intacto para fondos claros.
+
+La variante se deriva de forma determinista del PNG incrustado: una selección cromática aclara las zonas azules del nombre y una región separada aclara el subtítulo. Conserva geometría, proporciones y transparencia; el símbolo queda fuera de estas selecciones. Este SVG contiene el PNG de origen y filtros, **no es una vectorización**. Una exportación enteramente vectorial requiere la fuente de diseño original.
+
+Para regenerar la variante desde la raíz del repositorio:
+
+```sh
+node docs/prototypes/contax/build-logo-variant.mjs
+```
+
+La [vista de comparación](logo-preview.html) muestra antes/después a tamaño grande y a los anchos reales de cabecera: 238 px en escritorio y 175 px en teléfono. [Captura comparativa](preview-logo-comparison.jpg).
+
 ## Contenido y límites
 
 WhatsApp confirmado: **+1 (346) 339-8946**. El correo, Instagram, ubicación y horario se toman de la configuración existente como referencia. `content.js` los centraliza dentro de este prototipo autónomo; no se sincroniza automáticamente con `app/site-config.ts`.
@@ -84,6 +98,7 @@ No hay CMS, carga de videos, backend, envío de formularios, reserva de agenda n
 - Recursos, estado de videos propuestos, cambio de idioma y persistencia al recargar.
 - Menú móvil, navegación a Recursos, Escape y devolución del foco.
 - Anclas internas sin destinos faltantes y ausencia de errores o advertencias en la consola de la sesión revisada.
+- Variante clara del logo cargada en cabecera y footer, sin filtros CSS globales; revisión visual a 1440 px y 390 px y comparación a 238/175 px. Capturas de las tres composiciones actualizadas.
 
 No se enviaron mensajes ni se probó una conversación real con WhatsApp. No se afirma una auditoría completa de accesibilidad, regresión de Next.js ni validación en dispositivos físicos. La apertura directa bajo `file://` no se pudo verificar por la restricción del navegador integrado.
 
