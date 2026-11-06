@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contax · Propuestas sobre blanco, marino y negro</title>
+  <style>
+    :root { color-scheme: light; background: #f4f2ee; color: #101e33; font: 100%/1.5 system-ui, sans-serif; }
+    body { margin: 0; }
+    main { width: min(62rem, calc(100% - 2rem)); margin: 2rem auto 4rem; }
+    h1 { font: 2.25rem/1.15 Georgia, serif; margin: 0 0 .5rem; }
+    p { margin: 0; }
+    article { margin-top: 1.5rem; padding: 1rem; border: 1px solid #dedad0; background: #fff; border-radius: .75rem; }
+    h2 { font: 1.5rem/1.2 Georgia, serif; margin: 0 0 .75rem; }
+    img { display: block; max-width: 100%; height: auto; border-radius: .25rem; }
+    .hero img { width: 100%; }
+    .sizes { display: flex; align-items: end; flex-wrap: wrap; gap: 1rem; margin-top: .75rem; }
+    figure { margin: 0; max-width: 100%; }
+    figcaption { margin-bottom: .3rem; font-size: .85rem; }
+    a { color: #174e78; text-underline-offset: .15em; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Contax en tres fondos</h1>
+    <p>Vista de las propuestas y prueba al ancho de la cabecera en escritorio y móvil.</p>
+    <article aria-labelledby="blanco">
+      <h2 id="blanco">Blanco · A corregida</h2>
+      <a class="hero" href="contax-fondo-blanco-a-corregida.png"><img src="contax-fondo-blanco-a-corregida.png" alt="Abrir el logo Contax sobre blanco en tamaño completo" width="2172" height="724"></a>
+      <div class="sizes">
+        <figure><figcaption>Escritorio · 238 px</figcaption><img src="contax-fondo-blanco-a-corregida.png" alt="" width="238" height="79"></figure>
+        <figure><figcaption>Móvil · 175 px</figcaption><img src="contax-fondo-blanco-a-corregida.png" alt="" width="175" height="58"></figure>
+      </div>
+    </article>
+    <article aria-labelledby="marino">
+      <h2 id="marino">Azul marino</h2>
+      <a class="hero" href="contax-fondo-marino.png"><img src="contax-fondo-marino.png" alt="Abrir el logo Contax sobre azul marino en tamaño completo" width="2172" height="724" loading="lazy"></a>
+      <div class="sizes">
+        <figure><figcaption>Escritorio · 238 px</figcaption><img src="contax-fondo-marino.png" alt="" width="238" height="79" loading="lazy"></figure>
+        <figure><figcaption>Móvil · 175 px</figcaption><img src="contax-fondo-marino.png" alt="" width="175" height="58" loading="lazy"></figure>
+      </div>
+    </article>
+    <article aria-labelledby="negro">
+      <h2 id="negro">Negro</h2>
+      <a class="hero" href="contax-fondo-negro.png"><img src="contax-fondo-negro.png" alt="Abrir el logo Contax sobre negro en tamaño completo" width="2172" height="724" loading="lazy"></a>
+      <div class="sizes">
+        <figure><figcaption>Escritorio · 238 px</figcaption><img src="contax-fondo-negro.png" alt="" width="238" height="79" loading="lazy"></figure>
+        <figure><figcaption>Móvil · 175 px</figcaption><img src="contax-fondo-negro.png" alt="" width="175" height="58" loading="lazy"></figure>
+      </div>
+    </article>
+  </main>
+</body>
+</html>
