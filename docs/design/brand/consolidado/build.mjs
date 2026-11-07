@@ -56,4 +56,24 @@ const sheet = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="1600" 
   ${panels.join("\n")}
 </svg>`);
 await sharp(sheet).composite(layers).png().toFile(file("comparativa.png"));
+
+// Inspect the same O against all four export backgrounds at enlarged size.
+const details = [];
+const detailLayers = [];
+for (const [index, [asset, title, , background]] of variants.entries()) {
+  const x = 20 + index * 320;
+  details.push(`<rect x="${x}" y="76" width="300" height="352" rx="10" fill="${background === "checker" ? "url(#checker)" : background}"/>
+    <text x="${x + 16}" y="106" fill="${background === "#FFFFFF" ? "#142E50" : "#F7F0E1"}" font-family="Arial, sans-serif" font-size="18">${title}</text>`);
+  const glyph = await sharp(file(asset))
+    .extract({ left: 837, top: 196, width: 268, height: 266 })
+    .resize({ width: 284 }).png().toBuffer();
+  detailLayers.push({ input: glyph, left: x + 8, top: 127 });
+}
+const detailSheet = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="448">
+  <defs><pattern id="checker" width="24" height="24" patternUnits="userSpaceOnUse"><rect width="24" height="24" fill="#3A4654"/><path d="M0 0H12V12H0ZM12 12H24V24H12Z" fill="#414F60"/></pattern></defs>
+  <rect width="1300" height="448" fill="#F2EEE6"/>
+  <text x="20" y="47" fill="#142E50" font-family="Georgia, serif" font-size="31">Revisión ampliada de la O</text>
+  ${details.join("\n")}
+</svg>`);
+await sharp(detailSheet).composite(detailLayers).png().toFile(file("detalle-o.png"));
 process.stdout.write("Generated four 2172 × 724 PNG exports and the comparison sheet.\n");
