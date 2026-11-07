@@ -183,3 +183,8 @@ Salida: versión candidata para aprobación de marca y publicación.
 ## Criterio de aceptación
 
 La primera versión estará lista para aprobación cuando reproduzca el recorrido y la personalidad del mockup principal, responda correctamente en móvil, mantenga los CTAs funcionales, presente solo información aprobada y permita actualizar recursos, videos, aliados y testimonios sin rediseñar la página.
+
+
+## Entrega de aplicación v0.30.0
+
+La composición del prototipo consolidado se ha trasladado a la aplicación Next.js, con publicación de revisión en un proyecto Firebase independiente. El estado actualizado de implementación, validación y lanzamiento está en [el checklist de v0.30.0](releases/v0.30.0.md). La organización y automatización para futuras entregas está documentada en [PROJECT_DELIVERY_STANDARD.md](PROJECT_DELIVERY_STANDARD.md).

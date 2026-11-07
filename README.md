@@ -1,84 +1,82 @@
-# Contax Business Solutions — Landing Page
+# Contax Landing Page
 
-Landing bilingüe de Contax Business Solutions para presentar servicios contables, tributarios y empresariales en Estados Unidos y Colombia, educar a clientes potenciales y convertir visitas en consultas.
+Landing de Contax Business Solutions en Next.js, React y TypeScript. La versión `0.30.0` traslada el prototipo aprobado a la aplicación y genera una entrega estática para Firebase Hosting.
 
-## Estado del proyecto
-
-- Rama de trabajo: `refactor`.
-- Rama base: `master`.
-- Stack: Next.js, React, TypeScript y CSS.
-- Idiomas: español e inglés.
-- Estado actual: landing implementada y prototipo HTML navegable basado en el mockup principal, disponible para revisión visual.
-
-## Dirección de marca
-
-La regla visual del refactor es: **el azul domina, el oro dirige y el turquesa firma**.
-
-- Azul marino para autoridad, hero, manifiestos, CTA y footer.
-- Oro para acciones, bordes, ondas y énfasis.
-- Marfil y blanco para contenido editorial.
-- Turquesa limitado a iconos, enlaces y microinteracciones.
-- Ondas amplias inspiradas en la tarjeta oficial, implementadas con SVG/CSS.
-
-## Arquitectura de la landing
-
-1. Header y navegación.
-2. Hero y propuesta de valor.
-3. Servicios principales.
-4. Cobertura Estados Unidos y Colombia.
-5. Planeación tributaria y preparación de impuestos.
-6. Tips y recursos.
-7. Biblioteca de videos.
-8. Por qué Contax.
-9. Proceso de trabajo.
-10. Industrias atendidas.
-11. Aliados estratégicos.
-12. Testimonios.
-13. CTA y contacto.
-14. Footer legal y corporativo.
-
-## Documentación
-
-- [Prototipo HTML de Contax: entrada](docs/prototypes/contax/index.html)
-- [Guía, recorridos y validación del prototipo](docs/prototypes/contax/README.md)
-- [Auditoría de marca y plan de refactor](docs/CONTAX_LANDING_AUDIT_AND_REFACTOR_PLAN.md)
-- [Especificación de contenido y administración](docs/CONTENT_AND_CMS_SPEC.md)
-- [Checklist de recopilación de contenido](docs/CONTENT_COLLECTION_CHECKLIST.md)
-- [Plan de desarrollo del mockup principal](docs/PRIMARY_MOCKUP_DEVELOPMENT_PLAN.md)
-- [Mockup principal aprobado](docs/design/contax-primary-mockup.png)
-- [Concepto visual inicial](docs/design/contax-landing-refactor-concept.png)
-- [Concepto visual ampliado](docs/design/contax-landing-refactor-concept-v2.png)
-- [Mockup mejorado](docs/design/mockup-landing-page-enhanced.png)
-- [Mockup de alta resolución 4×](docs/design/mockup-landing-page-ultra-4x.png)
-
-Los mockups son referencias de dirección visual. Los nombres de aliados, testimonios y datos de contacto que aparezcan como muestra no deben publicarse sin validación.
-
-## Desarrollo local
-
-```bash
-npm install
+```sh
+npm ci
 npm run dev
 ```
 
-Abrir `http://localhost:3000`.
+Español en `/`; inglés en `/en`. Cada ruta entrega HTML, idioma y metadatos propios desde la exportación. No requiere servidor de Next.js en producción. Se utiliza Node 24, registrado en `.node-version`.
 
-## Verificación
+## Organización
 
-```bash
-npm run lint
-npm run build
+| Ruta | Responsabilidad |
+| --- | --- |
+| `app/(es)` y `app/(en)` | Rutas y documentos de cada idioma |
+| `components/landing/landing-page.tsx` | Secciones, navegación y estado de la landing |
+| `components/landing/dialog.tsx` | Servicios, consultas, recursos y videos |
+| `components/landing/content.ts` | Textos ES/EN y contenido de esta versión |
+| `components/landing/ui.tsx` y `graphics.tsx` | Elementos compartidos e ilustraciones vectoriales |
+| `app/site-config.ts` | Contacto oficial y WhatsApp |
+| `app/site-metadata.ts` | Metadatos base de la entrega |
+| `app/globals.css` | Tokens de marca y estilos adaptables del prototipo |
+| `public/contax` | Logo transparente consolidado e ilustraciones aprobadas |
+| `docs/prototypes/contax` | Referencia visual aprobada; no se usa como iframe |
+| `scripts/verify-export.mjs` | Validación del artefacto que se publica |
+| `.github/workflows/landing.yml` | Validación y publicación de versiones |
+
+`app/editorial-content.ts` conserva el catálogo anterior como referencia de migración; no alimenta esta versión. Para cambiar los textos visibles se utiliza `components/landing/content.ts`.
+
+## Validación y vista de revisión
+
+```sh
+npm run check
+npm start
 ```
 
-Antes de publicar también se debe validar visualmente en 390 px, 768 px y 1440 px, probar español e inglés y verificar todos los enlaces de contacto.
+`check` ejecuta ESLint, genera los tipos de rutas, comprueba TypeScript, construye la aplicación y verifica `out/`: idiomas, encabezados, navegación interna, archivos locales, logo aprobado y destino de WhatsApp. `start` sirve esa exportación con el emulador de Firebase en `http://127.0.0.1:5005`.
 
-## Flujo de ramas
+El build usa Webpack: Turbopack no pudo iniciar su proceso de CSS en este entorno. No se requiere acceso a fuentes o imágenes externas durante la construcción.
 
-- `master`: versión estable/base.
-- `refactor`: rediseño y ampliación de contenido.
-- Cambios grandes: commits pequeños por fase (cimientos visuales, contenido, conversión y calidad).
+Los diálogos utilizan el elemento nativo `dialog`, cierran con Escape y restituyen el foco. El formulario valida país y servicio antes de abrir WhatsApp con un mensaje preparado; no envía mensajes, reserva citas ni almacena datos. ITIN se ofrece únicamente para Estados Unidos.
 
-Repositorio: `git@github.com:lpipeal/contax-landing-page.git`.
+## Firebase independiente
 
-## Vista de contenido demo
+- Proyecto: `contax-business-solutions` (`147770944219`).
+- Sitio de Hosting: `contax-business-solutions`.
+- Destino local: `landing`.
+- Artefacto: `out/`.
 
-En desarrollo local, `.env.local` activa tarjetas de recursos y videos con enlaces de demostración bajo `example.com`. Esas tarjetas solo sirven para evaluar la composición visual y se ocultan en una compilación de producción mientras `NEXT_PUBLIC_CONTAX_CONTENT_MODE` no sea `preview`.
+La configuración no apunta a ningún sitio de Dynosoft. La entrega actual es de revisión: usa `noindex`, conserva los avisos de contenido pendiente y no presupone que el dominio comercial esté confirmado.
+
+```sh
+# Valida y publica una vista temporal de 30 días.
+npm run deploy:preview
+
+# Valida y publica el sitio principal, cuando se decida el lanzamiento.
+npm run deploy:production
+```
+
+Los comandos fijan explícitamente el proyecto y el destino. No se agregan rewrites de SPA: las rutas inexistentes devuelven la página 404.
+
+## GitHub Actions
+
+Los PR a `master` y los pushes a `master`, `refactor` o tags `v*` ejecutan lint, tipos, build y comprobación de la exportación. Un tag debe coincidir con `package.json`; esta entrega utiliza `v0.30.0`.
+
+El despliegue es manual sobre un tag. El workflow conserva el artefacto validado y lo publica desde el entorno `production`. El job de despliegue tiene su propia exclusión mutua para evitar publicaciones simultáneas.
+
+La autenticación usa OpenID Connect y Workload Identity Federation. Configura estas variables en el entorno `production` de GitHub:
+
+- `FIREBASE_WIF_PROVIDER`: recurso completo del proveedor de Google, restringido a `lpipeal/contax-landing-page` y a `refs/tags/v*`.
+- `FIREBASE_DEPLOYER`: correo de una cuenta de servicio dedicada a Hosting de Contax.
+
+La cuenta debe tener permisos de despliegue de Hosting en este proyecto y permitir su uso desde el proveedor mediante `roles/iam.workloadIdentityUser`. No se guardan JSON de cuentas de servicio ni tokens permanentes en el repositorio. La configuración de esa identidad y las variables no se realiza al crear el proyecto; deben completarse antes del primer despliegue desde Actions.
+
+Con la identidad configurada y el workflow presente en la rama predeterminada:
+
+```sh
+gh workflow run landing.yml --ref v0.30.0
+```
+
+Consulta el [checklist de la entrega](docs/releases/v0.30.0.md) y el [criterio de organización para proyectos de Dynosoft](docs/PROJECT_DELIVERY_STANDARD.md).
