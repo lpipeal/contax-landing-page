@@ -68,7 +68,7 @@ Titulares: Georgia/Times New Roman. Cuerpo: Arial/Helvetica. Se usan fuentes del
 
 ### Logo sobre fondos oscuros
 
-La cabecera y el pie muestran el [logo consolidado con transparencia](../../design/logo-proposals/glossy/contax-logo-consolidado-transparente.png) sobre el azul marino. El subtítulo «BUSINESS SOLUTIONS» está en blanco. El recurso `assets/contax-logo-consolidado-transparente.webp` (952 × 236 px) recorta el margen exterior del PNG para aprovechar el espacio a los anchos de cabecera de 238 px en escritorio y 175 px en teléfono.
+La cabecera y el pie muestran el [logo consolidado con transparencia](../../design/brand/consolidado/contax-sin-fondo.png) sobre el azul marino. El subtítulo «BUSINESS SOLUTIONS» está en blanco. El recurso `assets/contax-logo-consolidado-transparente.webp` (952 × 236 px) recorta el margen exterior del PNG para aprovechar el espacio a los anchos de cabecera de 238 px en escritorio y 175 px en teléfono.
 
 La [prueba anterior de delineado dorado](logo-preview.html) conserva el SVG con el PNG de origen incrustado y un contorno de 1,4 unidades en `#C79845`.
 
