@@ -68,9 +68,9 @@ Titulares: Georgia/Times New Roman. Cuerpo: Arial/Helvetica. Se usan fuentes del
 
 ### Logo sobre fondos oscuros
 
-Cabecera y footer usan `assets/contax-logo-gold-outline.svg`: el logo conserva todos sus colores originales y recibe únicamente un contorno en el oro de la web `#C79845`. El trazo recorre el símbolo, el nombre, el subtítulo y los detalles decorativos. La propuesta anterior con letras en marfil fue retirada. El PNG original permanece intacto.
+La cabecera y el pie muestran el [logo blanco consolidado](../../design/logo-proposals/glossy/contax-fondo-blanco-consolidado.png) sobre una base blanca con un borde dorado suave. El recurso `assets/contax-logo-consolidado.webp` (952 × 250 px) recorta el margen exterior del PNG para aprovechar el espacio a los anchos de cabecera de 238 px en escritorio y 175 px en teléfono.
 
-La variante se deriva de forma determinista del PNG incrustado: se expande su silueta alfa 1,4 unidades del archivo original, se resta la silueta inicial y se colorea solo el borde añadido. El PNG se compone encima con sus colores intactos. Un margen transparente evita recortar los extremos del trazo. El contorno se afinó un 56 % frente a la primera propuesta dorada: equivale aproximadamente a 0,22 px en una cabecera de 238 px y a 0,16 px en 175 px. No se añaden desenfoques ni resplandores. Este SVG contiene el PNG de origen y filtros, **no es una vectorización**. Una exportación enteramente vectorial requiere la fuente de diseño original.
+La [prueba anterior de delineado dorado](logo-preview.html) conserva el SVG con el PNG de origen incrustado y un contorno de 1,4 unidades en `#C79845`.
 
 Para regenerar la variante desde la raíz del repositorio:
 
@@ -78,7 +78,7 @@ Para regenerar la variante desde la raíz del repositorio:
 node docs/prototypes/contax/build-logo-variant.mjs
 ```
 
-La [vista de comparación](logo-preview.html) muestra antes/después a tamaño grande y a los anchos reales de cabecera: 238 px en escritorio y 175 px en teléfono. [Captura comparativa](preview-logo-comparison.jpg).
+La [captura del delineado](preview-logo-comparison.jpg) corresponde a esa prueba anterior.
 
 ## Contenido y límites
 
@@ -98,11 +98,11 @@ No hay CMS, carga de videos, backend, envío de formularios, reserva de agenda n
 - Recursos, estado de videos propuestos, cambio de idioma y persistencia al recargar.
 - Menú móvil, navegación a Recursos, Escape y devolución del foco.
 - Anclas internas sin destinos faltantes y ausencia de errores o advertencias en la consola de la sesión revisada.
-- Variante de delineado dorado cargada en cabecera y footer, sin recoloreado de las superficies originales ni filtros CSS globales; revisión visual a 1440 px y 390 px y comparación a 238/175 px. Capturas de las tres composiciones actualizadas.
+- Logo consolidado revisado a 1440 px y 390 px. La imagen cargó en la cabecera y el pie, y la página mantuvo su ancho sin desbordamiento horizontal.
 
 No se enviaron mensajes ni se probó una conversación real con WhatsApp. No se afirma una auditoría completa de accesibilidad, regresión de Next.js ni validación en dispositivos físicos. La apertura directa bajo `file://` no se pudo verificar por la restricción del navegador integrado.
 
-Capturas: [escritorio](preview-desktop.jpg), [tablet](preview-tablet.jpg), [teléfono](preview-mobile.jpg), [portada](preview-cover.jpg).
+Capturas de la prueba de delineado: [escritorio](preview-desktop.jpg), [tablet](preview-tablet.jpg), [teléfono](preview-mobile.jpg), [portada](preview-cover.jpg).
 
 ## Checklist para trasladar la propuesta a Next.js
 
