@@ -20,7 +20,7 @@
   const arrow = () => icon("arrow", "arrow");
   const whatsapp = (message = t().whatsappMessage) => `${contact.whatsapp}?text=${encodeURIComponent(message)}`;
   const external = 'target="_blank" rel="noopener noreferrer"';
-  const brandLogo = (loading) => `<img src="assets/contax-logo-consolidado.webp" width="952" height="250" alt="Contax Business Solutions" ${loading}>`;
+  const brandLogo = (loading) => `<img src="assets/contax-logo-consolidado-transparente.webp" width="952" height="236" alt="Contax Business Solutions" ${loading}>`;
   const ornament = () => '<span class="ornament" aria-hidden="true"><i></i><b>✦</b><i></i></span>';
   const sectionHeading = (title) => `<div class="section-heading"><h2>${title}</h2>${ornament()}</div>`;
 
