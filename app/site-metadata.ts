@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteConfig } from "./site-config";
 
 export const metadata: Metadata = {
   title: {
@@ -7,7 +8,7 @@ export const metadata: Metadata = {
   },
   description:
     "Asesoría contable, tributaria y empresarial para empresas y emprendedores en Estados Unidos y Colombia.",
-  metadataBase: new URL("https://contax-business-solutions.web.app"),
+  metadataBase: new URL(siteConfig.url),
   applicationName: "Contax Business Solutions",
   category: "business",
   alternates: { canonical: "/", languages: { es: "/", en: "/en" } },

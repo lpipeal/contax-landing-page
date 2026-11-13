@@ -1,4 +1,5 @@
 export const siteConfig = {
+  url: "https://contaxbs.com",
   contact: {
     phoneDisplay: "+1 (346) 339-8946",
     phoneHref: "tel:+13463398946",

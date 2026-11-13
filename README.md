@@ -1,6 +1,6 @@
 # Contax Landing Page
 
-Landing de Contax Business Solutions en Next.js, React y TypeScript. La versión `0.30.0` traslada el prototipo aprobado a la aplicación y genera una entrega estática para Firebase Hosting.
+Landing de Contax Business Solutions en Next.js, React y TypeScript. La versión `0.30.1` utiliza el prototipo aprobado y publica una entrega estática en el sitio principal de Firebase Hosting. El dominio oficial confirmado es `contaxbs.com`, con DNS administrados en Cloudflare.
 
 ```sh
 npm ci
@@ -48,7 +48,7 @@ Los diálogos utilizan el elemento nativo `dialog`, cierran con Escape y restitu
 - Destino local: `landing`.
 - Artefacto: `out/`.
 
-La configuración no apunta a ningún sitio de Dynosoft. La entrega actual es de revisión: usa `noindex`, conserva los avisos de contenido pendiente y no presupone que el dominio comercial esté confirmado.
+La configuración no apunta a ningún sitio de Dynosoft. El sitio principal ya está publicado en https://contax-business-solutions.web.app. El dominio `contaxbs.com` está registrado en Firebase y su conexión requiere los DNS y la validación HTTPS descritos en la entrega. Se conserva `noindex` y los avisos de contenido pendiente hasta la aprobación editorial.
 
 ```sh
 # Valida y publica una vista temporal de 30 días.
@@ -62,7 +62,7 @@ Los comandos fijan explícitamente el proyecto y el destino. No se agregan rewri
 
 ## GitHub Actions
 
-Los PR a `master` y los pushes a `master`, `refactor` o tags `v*` ejecutan lint, tipos, build y comprobación de la exportación. Un tag debe coincidir con `package.json`; esta entrega utiliza `v0.30.0`.
+Los PR a `master` y los pushes a `master`, `refactor` o tags `v*` ejecutan lint, tipos, build y comprobación de la exportación. Un tag debe coincidir con `package.json`; esta entrega utiliza `v0.30.1`.
 
 El despliegue es manual sobre un tag. El workflow conserva el artefacto validado y lo publica desde el entorno `production`. El job de despliegue tiene su propia exclusión mutua para evitar publicaciones simultáneas.
 
@@ -76,7 +76,7 @@ La cuenta debe tener permisos de despliegue de Hosting en este proyecto y permit
 Con la identidad configurada y el workflow presente en la rama predeterminada:
 
 ```sh
-gh workflow run landing.yml --ref v0.30.0
+gh workflow run landing.yml --ref v0.30.1
 ```
 
-Consulta el [checklist de la entrega](docs/releases/v0.30.0.md) y el [criterio de organización para proyectos de Dynosoft](docs/PROJECT_DELIVERY_STANDARD.md).
+Consulta el [checklist de la entrega](docs/releases/v0.30.1.md) y el [criterio de organización para proyectos de Dynosoft](docs/PROJECT_DELIVERY_STANDARD.md).
