@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "contax-business-solutions"
+  },
+  "targets": {
+    "contax-business-solutions": {
+      "hosting": {
+        "landing": [
+          "contax-business-solutions"
+        ]
+      }
+    }
+  }
+}
