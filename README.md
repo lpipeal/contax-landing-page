@@ -48,7 +48,7 @@ Los diálogos utilizan el elemento nativo `dialog`, cierran con Escape y restitu
 - Destino local: `landing`.
 - Artefacto: `out/`.
 
-La configuración no apunta a ningún sitio de Dynosoft. El sitio principal ya está publicado en https://contax-business-solutions.web.app. El dominio `contaxbs.com` está registrado en Firebase y su conexión requiere los DNS y la validación HTTPS descritos en la entrega. Se conserva `noindex` y los avisos de contenido pendiente hasta la aprobación editorial.
+La configuración no apunta a ningún sitio de Dynosoft. El sitio principal ya está publicado en https://contax-business-solutions.web.app. El dominio `contaxbs.com` está registrado en Firebase y sus DNS de Cloudflare ya fueron comprobados; la validación de propiedad y HTTPS de Firebase sigue pendiente según el último estado registrado en la entrega. Se conserva `noindex` y los avisos de contenido pendiente hasta la aprobación editorial.
 
 ```sh
 # Valida y publica una vista temporal de 30 días.
